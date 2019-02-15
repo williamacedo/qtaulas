@@ -25,6 +25,7 @@ void MainWindow::on_pushButton_clicked()
     temp[a].set_valor(ui->lineEdit_3->text());
     ui->label_5->setText(QString("%1").arg(a+1)+ QString(" de 3"));
     a++;
+    ui->lcdNumber->display(a);
     if(a==3){
         ui->pushButton->setEnabled(0);
         ui->lineEdit->setEnabled(0);
@@ -46,5 +47,18 @@ void MainWindow::on_pushButton_2_clicked()
         ui->listWidget->addItem(temp[a].ret_ano());
         ui->listWidget->addItem(temp[a].ret_valor());
         a++;
+    }
+}
+
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    for(int a=0;a<3;a++){
+        if(ui->lineEdit_4->text()==temp[a].ret_fab()){
+            ui->lineEdit->clear();
+            ui->listWidget->addItem(temp[a].ret_fab());
+            ui->listWidget->addItem(temp[a].ret_ano());
+            ui->listWidget->addItem(temp[a].ret_valor());
+        }
     }
 }
